@@ -12,7 +12,7 @@ function About() {
                                     <br />
                                 </h1>
                                 <p className="mb-0">
-                                    "Built by students, for students! 💻 We know the struggle of hunting for reliable study material right
+                                    "Builted by students, for students! 💻 We know the struggle of hunting for reliable study material right
                                     before minor or major exams. That’s why NotesVault brings together handwritten faculty notes, solved PYQs,
                                     and official reference documents under one clean dashboard. Select your track, download your materials,
                                     and clear your reappears or ace your internals with confidence! 💯"
