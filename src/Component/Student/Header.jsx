@@ -156,10 +156,7 @@ function Header() {
                         <i className="mobile-nav-toggle d-xl-none bi bi-list" />
                     </nav>
                    
-                    <form class="d-flex ps-5" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+                  
   </div>
 
             </header>

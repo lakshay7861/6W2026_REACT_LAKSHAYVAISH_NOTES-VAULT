@@ -5,7 +5,7 @@ function AdHeader() {
         <>
             <header id="header" className="header d-flex align-items-center sticky-top ">
                 <div className="container-fluid container-xl position-relative d-flex align-items-center  g-2">
-                    <Link to="index.html" className=" text-decoration-none logo d-flex align-items-center me-auto">
+                    <Link to="/admin" className=" text-decoration-none logo d-flex align-items-center me-auto">
                         {/* Uncomment the line below if you also wish to use an image logo */}
                         {/* <img src="assets/img/logo.webp" alt=""> */}
                         <h1 className="sitename me-3 pe-2">Admin Panel</h1>
@@ -13,7 +13,7 @@ function AdHeader() {
                     <nav id="navmenu" className="navmenu">
                         <ul>
                             <li>
-                                <Link to="admindashboard" className=" p-1 m-1 text-decoration-none active">
+                                <Link to="/admin" className=" p-1 m-1 text-decoration-none active">
                                     Dashboard
                                     <br />
                                 </Link>

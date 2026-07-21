@@ -26,7 +26,7 @@ function Login() {
         };
         try {
 
-            const user = await UsersServices.Login(payload);
+            const user = await UsersServices.login(payload);
 
             toast.success("Login Success");
             if (user.userType == 1) {
@@ -97,7 +97,7 @@ function Login() {
 
                         <button
                             className="w-100 btn form-control border-secondary py-3 bg-white text-primary "
-                            type="submit"
+                            type="submit "
                         >
                             Submit
                         </button>

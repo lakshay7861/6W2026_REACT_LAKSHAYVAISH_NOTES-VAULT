@@ -1,46 +1,91 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth"
-import { doc, setDoc } from "firebase/firestore"
-import { auth, db } from "../Firebase/FirebaseConfig"
-import  UserModel from "../Models/UserModel"
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+} from "firebase/auth";
 
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
-const dbpath ="users"
+import { auth, db } from "../Firebase/FirebaseConfig";
+import UserModel from "../Models/UserModel";
+import AuthService from "./AuthService";
 
-class UsersService{
-    async register(data){
-        const usersData = await createUserWithEmailAndPassword(auth, data.email, data.password)
-        const user = usersData.user
-        const newUser = new UserModel()
-        newUser.name = user.uid
-        newUser.email =user.email;
-        newUser.phone = user.phoneNumber;
-        newUser.userType= 2 //Provider
+const dbpath = "users";
 
-        const setDocData =await setDoc(doc(db,dbpath,usersData.uid), {...newUser});
-        await signOut(auth)
-         return setDocData
-    }
-    async registerstudent(data)
-    {
-        const usersData= await createUserWithEmailAndPassword(auth, data.email , data.password)
-        const user = usersData.user
-        const newUser = new UserModel()
-        newUser.name= user.name;
-        newUser.email=user.email;
-        newUser.userType = 3 //student
-
-        const setDocData= await setDoc(doc(db, dbpath,user.name),{...newUser});
-        await signOut(auth)
-        return setDocData
-    }
-    async login(data)
-    {
-        const usersData = signInWithEmailAndPassword(auth
-            , 
+class UsersService {
+    async register(data) {
+        const usersData = await createUserWithEmailAndPassword(
+            auth,
             data.email,
             data.password
         );
-        const users= (await usersData).user
-        const user
+
+        const user = usersData.user;
+
+        const newUser = new UserModel();
+        newUser.name = data.name; // Register form se aayega
+        newUser.email = user.email;
+        newUser.phone = data.phone || "";
+        newUser.userType = 2;
+
+        await setDoc(doc(db, dbpath, user.uid), { ...newUser });
+
+        await signOut(auth);
+
+        return newUser;
+    }
+
+    async registerstudent(data) {
+        const usersData = await createUserWithEmailAndPassword(
+            auth,
+            data.email,
+            data.password
+        );
+
+        const user = usersData.user;
+
+        const newUser = new UserModel();
+        newUser.name = data.name;
+        newUser.email = user.email;
+        newUser.phone = data.phone || "";
+        newUser.userType = 3;
+
+        await setDoc(doc(db, dbpath, user.uid), { ...newUser });
+
+        await signOut(auth);
+
+        return newUser;
+    }
+
+    async login(data) {
+        const usersData = await signInWithEmailAndPassword(
+            auth,
+            data.email,
+            data.password
+        );
+
+        const user = usersData.user;
+
+        const firestoreDoc = await getDoc(doc(db, dbpath, user.uid));
+
+        if (!firestoreDoc.exists()) {
+            throw new Error("User data not found");
+        }
+
+        const firestoreData = firestoreDoc.data();
+
+        const authData = {
+            id: user.uid,
+            name: firestoreData.name,
+            email: firestoreData.email,
+            userType: firestoreData.userType,
+            token: user.accessToken,
+        };
+
+        await AuthService.setData(authData);
+
+        return authData;
     }
 }
+
+export default new UsersService();

@@ -4,19 +4,19 @@ function Home() {
             <main className="main">
                 {/* Hero Section */}
                 <section id="hero" className="hero section dark-background">
-                    <img src="assets/img/hero-bg.jpg" alt="" />
+                    <img src="\assets\img\home image\fluid image 1st.avif" alt="" />
                     <div className="container">
                         <h2 >
-                            Learning Today,
+                            Knowledge For Everyone
                             <br />
-                            Leading Tomorrow
+                            Share Notes Easily
                         </h2>
                         <p >
-                            We are team of talented designers making websites with Bootstrap
+                            Empowering Students Through Smart Learning
                         </p>
                         <div className="d-flex mt-4">
-                            <a href="courses.html" className="btn-get-started">
-                                Get Started
+                            <a href="courses.html" className="btn-get-started border-info-subtle border-4">
+                                Explore Question Paper
                             </a>
                         </div>
                     </div>
@@ -30,36 +30,37 @@ function Home() {
                                 className="col-lg-6 order-1 order-lg-2"
 
                             >
-                                <img src="assets/img/about.jpg" className="img-fluid" alt="" />
+                                <img src="\assets\img\home image\2nd right image.avif" className="img-fluid" alt="" />
                             </div>
                             <div
                                 className="col-lg-6 order-2 order-lg-1 content"
 
                             >
-                                <h3>Voluptatem dignissimos provident quasi corporis</h3>
+                                <h3>Everything You Need to Study, All in One Place</h3>
                                 <p className="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Our platform provides students with notes, question papers, PDFs,
+                                    and useful learning resources to make studying easier, faster, and
+                                    more effective.
                                 </p>
                                 <ul>
                                     <li>
                                         <i className="bi bi-check-circle" />{" "}
                                         <span>
-                                            Ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                            Organized notes and PDFs.
                                         </span>
                                     </li>
                                     <li>
                                         <i className="bi bi-check-circle" />{" "}
                                         <span>
-                                            Duis aute irure dolor in reprehenderit in voluptate velit.
+                                            Previous year papers.
                                         </span>
                                     </li>
                                     <li>
                                         <i className="bi bi-check-circle" />{" "}
                                         <span>
-                                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                                            aute irure dolor in reprehenderit in voluptate trideta
-                                            storacalaperda mastiro dolore eu fugiat nulla pariatur.
+                                            One platform for all your academic needs—explore study notes, previous year papers,
+                                            valuable learning resources, and group study sessions to make learning easier,
+                                            faster, and more effective.
                                         </span>
                                     </li>
                                 </ul>
@@ -123,13 +124,12 @@ function Home() {
                         <div className="row gy-4">
                             <div className="col-lg-4" >
                                 <div className="why-box">
-                                    <h3>Why Choose Our Products?</h3>
+                                    <h3>Why Choose Our Platform?</h3>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
-                                        aute irure dolor in reprehenderit Asperiores dolores sed et.
-                                        Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio
-                                        ad corporis.
+                                        Our platform provides everything students need in one place.
+                                        Access quality study notes, previous year papers, useful learning resources,
+                                        and collaborate through group study to improve your
+                                        learning experience and exam preparation.
                                     </p>
                                     <div className="text-center">
                                         <a href="#" className="more-btn">
@@ -143,37 +143,36 @@ function Home() {
                                 <div className="row gy-4">
                                     <div className="col-xl-4">
                                         <div className="icon-box d-flex flex-column justify-content-center align-items-center">
-                                            <i className="bi bi-clipboard-data" />
-                                            <h4>Corporis voluptates officia eiusmod</h4>
+                                            <i className="bi bi-file-play " />
+                                            <h4 className="fs-3">Video Lectures</h4>
                                             <p>
-                                                Consequuntur sunt aut quasi enim aliquam quae harum pariatur
-                                                laboris nisi ut aliquip
+                                                Learn through high-quality educational videos that simplify concepts and enhance your academic understanding.
                                             </p>
                                         </div>
                                     </div>
                                     {/* End Icon Box */}
                                     <div className="col-xl-4" >
                                         <div className="icon-box d-flex flex-column justify-content-center align-items-center">
-                                            <i className="bi bi-gem" />
-                                            <h4>Ullamco laboris ladore pan</h4>
+                                            <i className="bi bi-file-earmark-fill" />
+                                            <h4 className="fs-3">Previous Papers and Notes</h4>
                                             <p>
-                                                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                                                qui officia deserunt
+                                                Explore organized study notes and previous year papers to strengthen concepts and boost exam performance.
                                             </p>
                                         </div>
                                     </div>
                                     {/* End Icon Box */}
                                     <div className="col-xl-4" >
                                         <div className="icon-box d-flex flex-column justify-content-center align-items-center">
-                                            <i className="bi bi-inboxes" />
-                                            <h4>Labore consequatur incidid dolore</h4>
+                                            <i className="bi bi-people" />
+                                            <h4 className="fs-3">Group Study</h4>
                                             <p>
-                                                Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut
-                                                maiores omnis facere
+                                                Collaborate with fellow students, share knowledge, and
+                                                learn together through interactive group study sessions.
                                             </p>
                                         </div>
                                     </div>
                                     {/* End Icon Box */}
+
                                 </div>
                             </div>
                         </div>
@@ -191,7 +190,7 @@ function Home() {
                                     <i className="bi bi-eye" style={{ color: "#ffbb2c" }} />
                                     <h3>
                                         <a href="" className="stretched-link">
-                                            Lorem Ipsum
+                                            Study Notes
                                         </a>
                                     </h3>
                                 </div>
@@ -199,13 +198,13 @@ function Home() {
                             {/* End Feature Item */}
                             <div
                                 className="col-lg-3 col-md-4"
-                                
+
                             >
                                 <div className="features-item">
                                     <i className="bi bi-infinity" style={{ color: "#5578ff" }} />
                                     <h3>
                                         <a href="" className="stretched-link">
-                                            Dolor Sitema
+                                            Previous Paper
                                         </a>
                                     </h3>
                                 </div>
@@ -213,13 +212,13 @@ function Home() {
                             {/* End Feature Item */}
                             <div
                                 className="col-lg-3 col-md-4"
-                                
+
                             >
                                 <div className="features-item">
                                     <i className="bi bi-mortarboard" style={{ color: "#e80368" }} />
                                     <h3>
                                         <a href="" className="stretched-link">
-                                            Sed perspiciatis
+                                            Student Community
                                         </a>
                                     </h3>
                                 </div>
@@ -227,13 +226,13 @@ function Home() {
                             {/* End Feature Item */}
                             <div
                                 className="col-lg-3 col-md-4"
-                               
+
                             >
                                 <div className="features-item">
                                     <i className="bi bi-nut" style={{ color: "#e361ff" }} />
                                     <h3>
                                         <a href="" className="stretched-link">
-                                            Magni Dolores
+                                            Browse Paper
                                         </a>
                                     </h3>
                                 </div>
@@ -241,13 +240,13 @@ function Home() {
                             {/* End Feature Item */}
                             <div
                                 className="col-lg-3 col-md-4"
-                               
+
                             >
                                 <div className="features-item">
                                     <i className="bi bi-shuffle" style={{ color: "#47aeff" }} />
                                     <h3>
                                         <a href="" className="stretched-link">
-                                            Nemo Enim
+                                            Group Study
                                         </a>
                                     </h3>
                                 </div>
@@ -255,13 +254,13 @@ function Home() {
                             {/* End Feature Item */}
                             <div
                                 className="col-lg-3 col-md-4"
-                               
+
                             >
                                 <div className="features-item">
                                     <i className="bi bi-star" style={{ color: "#ffa76e" }} />
                                     <h3>
                                         <a href="" className="stretched-link">
-                                            Eiusmod Tempor
+                                            Upload Notes  
                                         </a>
                                     </h3>
                                 </div>
@@ -269,13 +268,13 @@ function Home() {
                             {/* End Feature Item */}
                             <div
                                 className="col-lg-3 col-md-4"
-                                
+
                             >
                                 <div className="features-item">
                                     <i className="bi bi-x-diamond" style={{ color: "#11dbcf" }} />
                                     <h3>
                                         <a href="" className="stretched-link">
-                                            Midela Teren
+                                            Share Resource
                                         </a>
                                     </h3>
                                 </div>
@@ -283,13 +282,13 @@ function Home() {
                             {/* End Feature Item */}
                             <div
                                 className="col-lg-3 col-md-4"
-                               
+
                             >
                                 <div className="features-item">
                                     <i className="bi bi-camera-video" style={{ color: "#4233ff" }} />
                                     <h3>
                                         <a href="" className="stretched-link">
-                                            Pira Neve
+                                            Video Resource
                                         </a>
                                     </h3>
                                 </div>
@@ -297,13 +296,13 @@ function Home() {
                             {/* End Feature Item */}
                             <div
                                 className="col-lg-3 col-md-4"
-                               
+
                             >
                                 <div className="features-item">
                                     <i className="bi bi-command" style={{ color: "#b2904f" }} />
                                     <h3>
                                         <a href="" className="stretched-link">
-                                            Dirada Pack
+                                        Join Group
                                         </a>
                                     </h3>
                                 </div>
@@ -311,46 +310,19 @@ function Home() {
                             {/* End Feature Item */}
                             <div
                                 className="col-lg-3 col-md-4"
-                                
+
                             >
                                 <div className="features-item">
                                     <i className="bi bi-dribbble" style={{ color: "#b20969" }} />
                                     <h3>
                                         <a href="" className="stretched-link">
-                                            Moton Ideal
+                                         Learning Resource
                                         </a>
                                     </h3>
                                 </div>
                             </div>
                             {/* End Feature Item */}
-                            <div
-                                className="col-lg-3 col-md-4"
-                              
-                            >
-                                <div className="features-item">
-                                    <i className="bi bi-activity" style={{ color: "#ff5828" }} />
-                                    <h3>
-                                        <a href="" className="stretched-link">
-                                            Verdo Park
-                                        </a>
-                                    </h3>
-                                </div>
-                            </div>
-                            {/* End Feature Item */}
-                            <div
-                                className="col-lg-3 col-md-4"
-                               
-                            >
-                                <div className="features-item">
-                                    <i className="bi bi-brightness-high" style={{ color: "#29cc61" }} />
-                                    <h3>
-                                        <a href="" className="stretched-link">
-                                            Flavor Nivelanda
-                                        </a>
-                                    </h3>
-                                </div>
-                            </div>
-                            {/* End Feature Item */}
+                        
                         </div>
                     </div>
                 </section>
@@ -367,7 +339,7 @@ function Home() {
                         <div className="row">
                             <div
                                 className="col-lg-4 col-md-6 d-flex align-items-stretch"
-                               
+
                             >
                                 <div className="course-item">
                                     <img
@@ -411,7 +383,7 @@ function Home() {
                             {/* End Course Item*/}
                             <div
                                 className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0"
-                               
+
                             >
                                 <div className="course-item">
                                     <img
@@ -455,7 +427,7 @@ function Home() {
                             {/* End Course Item*/}
                             <div
                                 className="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0"
-                              
+
                             >
                                 <div className="course-item">
                                     <img
@@ -507,7 +479,7 @@ function Home() {
                         <div className="row">
                             <div
                                 className="col-lg-4 col-md-6 d-flex"
-                              
+
                             >
                                 <div className="member">
                                     <img
@@ -542,7 +514,7 @@ function Home() {
                             {/* End Team Member */}
                             <div
                                 className="col-lg-4 col-md-6 d-flex"
-                                
+
                             >
                                 <div className="member">
                                     <img
@@ -577,7 +549,7 @@ function Home() {
                             {/* End Team Member */}
                             <div
                                 className="col-lg-4 col-md-6 d-flex"
-                               
+
                             >
                                 <div className="member">
                                     <img

@@ -97,7 +97,7 @@ function Register() {
 
                         <button
                             className="w-100 btn form-control border-secondary py-3  mb-5 bg-white text-primary "
-                            type="submit"
+                            type="submit" 
                         >
                             Submit
                         </button>

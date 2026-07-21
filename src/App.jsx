@@ -7,12 +7,12 @@ import Login from "./Component/Auth/Login"
 import { ToastContainer } from "react-toastify"
 import Register from "./Component/Auth/Register"
 import AdminLayout from "./Layout/AdminLayout"
-// import AdminDashboard from "./Component/Admin/DashBoard/AdminDashBoard"
 import ManageNotes from "./Component/Admin/ManageNotes/ManageNotes"
 import ManagePaper from "./Component/Admin/ManagePaper/ManagePaper"
 import ManageResource from "./Component/Admin/ManageResource/ManageResource"
 import ManageGroupStudy from "./Component/Admin/GroupStudy/ManageGroupStudy"
 import AddNotes from "./Component/Alumni/AddNotes"
+import AdDashBoard from "./Component/Admin/DashBoard/AdDashBoard"
 
 
 
@@ -35,18 +35,13 @@ function App() {
           </Route>
 
           <Route path="/admin" element={<AdminLayout />}>
-            {/* <Route path="admindashboard" element={<AdminDashboard />} /> */}
+            <Route path="/admin" element={<AdDashBoard />} />
             <Route path="/adminmanagenotes" element={<ManageNotes />} />
             <Route path="managepaper" element={<ManagePaper />} />
             <Route path="manageresource" element={<ManageResource />} />
             <Route path="login" element={<Login />} />
             <Route path="managegroupstudy" element={<ManageGroupStudy />} />
-            <Route path="addnotes" element={<AddNotes/>}/>
-            
-          </Route>
-          <Route path="addnotes" element={<AddNotes/>}>
-
-
+            <Route path="managenotes/addnotes" element={<AddNotes />} />
 
           </Route>
 
