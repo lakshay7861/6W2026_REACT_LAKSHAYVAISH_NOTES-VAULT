@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import NotesService from "../../../Services/NotesService"
@@ -30,8 +28,8 @@ function ManageNotes() {
                 confirmButtonText: "Yes, delete it!"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    CategoryService.deleteCat(id)
-                    fetchCategories();
+                    NotesService.deleteCat(id)
+                    fetchNotes();
                     Swal.fire({
                         title: "Deleted!",
                         text: "Your file has been deleted.",

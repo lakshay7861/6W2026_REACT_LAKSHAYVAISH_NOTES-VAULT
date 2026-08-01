@@ -46,4 +46,4 @@ class PaperService {
     }
 }
 
-export default new PaperService;
+export default new PaperService();

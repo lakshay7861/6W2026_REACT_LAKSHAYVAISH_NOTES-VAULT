@@ -1,12 +1,49 @@
-import { useState } from "react"
-
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import PaperService from "../../../Services/PaperService"
 
 function ManagePaper() {
 
-    const [title, setTitle] = useState("")
-    const [subject, setSubject] = useState("")
-    const [year, setYeat] = useState("")
+    const [paper ,setPaper] = useState([])
+
+async function getPaper() {
+        const data = await PaperService.all()
+        setPaper(data)
+
+    }
+    useEffect(() => {
+      getPaper()
+     }, [])
+
+    async function deletepaper(id) {
+        try {
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    NotesService.deleteCat(id)
+                    fetchNotes();
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                }
+            });
+
+        } catch (err) {
+            toast.error("Error Deleting Notes")
+            console.log("Error: ", err)
+        }
+    }
+
 
   
 
@@ -29,7 +66,7 @@ function ManagePaper() {
             <div className="container mt-5">
                 <div className="d-flex justify-content-between">
                     <h1 className="text-center text-success">Paper List</h1>
-                    <Link to="/admin/managepaper/add" >
+                    <Link to="addpaper" >
                         <button
                             className=" bi bi-plus-square-fill  btn border-secondary py-3 bg-white text-primary "
                             type="button"
@@ -59,7 +96,7 @@ function ManagePaper() {
                     </thead>
                 </table>
                 <tbody>
-                    {Paper.map((Paper, index) => (
+                    {paper.map((Paper, index) => (
                         <tr>
                             <td>
                                 <p className="mb-0 mt-4">{index + 1}</p>
@@ -86,7 +123,8 @@ function ManagePaper() {
                                     </button>
                                 </Link>
                                 &nbsp;
-                                <button onClick={() => { deleteCategory(Paper.id) }} className="btn btn-md rounded-circle bg-light border mt-4">
+                                <button //onClick={() => { deleteCategory(Paper.id) }} 
+                                className="btn btn-md rounded-circle bg-light border mt-4">
                                     <i className="bi bi-trash text-danger" />
                                 </button>
                             </td>

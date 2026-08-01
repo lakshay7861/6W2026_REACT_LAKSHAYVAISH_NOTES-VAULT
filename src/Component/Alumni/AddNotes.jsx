@@ -23,12 +23,12 @@ function AddNotes() {
         e.preventDefault()
         try {
             let imageUrl = ""
-            // if (!file) {
-            //     toast.error("Please select a file first!")
-            //     return
-            // } else {
-            //     imageUrl = await CloudinaryService.upload(file)
-            // }
+            if (!file) {
+                toast.error("Please select a file first!")
+                return
+            } else {
+                imageUrl = await CloudinaryService.upload(file)
+            }
 
 
             let payload = {
@@ -52,6 +52,7 @@ function AddNotes() {
 
     return (
         <>
+        
             <div className="container-fluid bg-success page-header py-5">
                 <h1 className="text-center text-white display-6">Add Notes</h1>
                 <ol className="breadcrumb justify-content-center mb-0">

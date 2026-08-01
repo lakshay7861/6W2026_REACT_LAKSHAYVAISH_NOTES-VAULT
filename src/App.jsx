@@ -13,6 +13,7 @@ import ManageResource from "./Component/Admin/ManageResource/ManageResource"
 import ManageGroupStudy from "./Component/Admin/GroupStudy/ManageGroupStudy"
 import AddNotes from "./Component/Alumni/AddNotes"
 import AdDashBoard from "./Component/Admin/DashBoard/AdDashBoard"
+// import AddPaper from "./Component/Alumni/AddPaper"
 
 
 
@@ -25,23 +26,23 @@ function App() {
         <Routes>
 
 
-
-          <Route path="/" element={<StudentLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/course" element={<Course />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Route>
+             <Route path ="/" element={<StudentLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/course" element={<Course />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+           </Route>
 
           <Route path="/admin" element={<AdminLayout />}>
             <Route path="/admin" element={<AdDashBoard />} />
             <Route path="/adminmanagenotes" element={<ManageNotes />} />
-            <Route path="managepaper" element={<ManagePaper />} />
+            <Route path="/adminmanagepaper" element={<ManagePaper />} />
             <Route path="manageresource" element={<ManageResource />} />
             <Route path="login" element={<Login />} />
             <Route path="managegroupstudy" element={<ManageGroupStudy />} />
             <Route path="managenotes/addnotes" element={<AddNotes />} />
+          {/* //  <Route path ="managepaper/addpaper" element={<AddPaper/>}  /> */}
 
           </Route>
 
