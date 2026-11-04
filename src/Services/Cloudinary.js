@@ -1,17 +1,15 @@
-const cloudName = 'g9iq0uix'
-const uploadUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`
-
 import axios from "axios"
-
-class CloudinaryService{
-    async upload(image){
-        let formData = new FormData()
-        formData.append('file', image)
+const cloudName = 'g9iq0uix'
+const uploadUrl = `https://api.cloudinary.com/v1_1/${cloudName}/raw/upload`
+class CloudinaryService {
+    async upload(file) {
+        const formData = new FormData()
+        formData.append('file', file)
         formData.append('upload_preset', 'vAssistant')
 
         const res = await axios.post(uploadUrl, formData)
-        return res.data.secure_url;
+        return res.data.secure_url
     }
 }
 
-export default new CloudinaryService;
+export default new CloudinaryService()

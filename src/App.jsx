@@ -4,52 +4,40 @@ import About from "./Component/Student/About/About"
 import Home from "./Component/Student/Home/Home"
 import Course from "./Component/Student/Course/Course"
 import Login from "./Component/Auth/Login"
-import { ToastContainer } from "react-toastify"
 import Register from "./Component/Auth/Register"
+import { ToastContainer } from "react-toastify"
 import AdminLayout from "./Layout/AdminLayout"
+import AdDashBoard from "./Component/Admin/DashBoard/AdDashBoard"
 import ManageNotes from "./Component/Admin/ManageNotes/ManageNotes"
 import ManagePaper from "./Component/Admin/ManagePaper/ManagePaper"
 import ManageResource from "./Component/Admin/ManageResource/ManageResource"
 import ManageGroupStudy from "./Component/Admin/GroupStudy/ManageGroupStudy"
 import AddNotes from "./Component/Alumni/AddNotes"
-import AdDashBoard from "./Component/Admin/DashBoard/AdDashBoard"
-// import AddPaper from "./Component/Alumni/AddPaper"
-
-
+import AddPaper from "./Component/Alumni/AddPaper"
 
 function App() {
-
-
   return (
     <>
       <BrowserRouter>
         <Routes>
-
-
-             <Route path ="/" element={<StudentLayout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/course" element={<Course />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-           </Route>
-
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route path="/admin" element={<AdDashBoard />} />
-            <Route path="/adminmanagenotes" element={<ManageNotes />} />
-            <Route path="/adminmanagepaper" element={<ManagePaper />} />
-            <Route path="manageresource" element={<ManageResource />} />
+          <Route path="/" element={<StudentLayout />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
+            <Route path="course" element={<Course />} />
             <Route path="login" element={<Login />} />
-            <Route path="managegroupstudy" element={<ManageGroupStudy />} />
-            <Route path="managenotes/addnotes" element={<AddNotes />} />
-          {/* //  <Route path ="managepaper/addpaper" element={<AddPaper/>}  /> */}
-
+            <Route path="register" element={<Register />} />
           </Route>
 
-
-
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdDashBoard />} />
+            <Route path="managenotes" element={<ManageNotes />} />
+            <Route path="managenotes/addnotes" element={<AddNotes />} />
+            <Route path="managepaper" element={<ManagePaper />} />
+            <Route path="managepaper/addpaper" element={<AddPaper />} />
+            <Route path="manageresource" element={<ManageResource />} />
+            <Route path="managegroupstudy" element={<ManageGroupStudy />} />
+          </Route>
         </Routes>
-
 
         <ToastContainer />
       </BrowserRouter>
@@ -57,4 +45,4 @@ function App() {
   )
 }
 
-export default App
+export default App  

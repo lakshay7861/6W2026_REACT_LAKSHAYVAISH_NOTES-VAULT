@@ -18,31 +18,22 @@ function Login() {
     }
 
     async function submitform(e) {
-        e.preventDefault();
+    e.preventDefault()
 
-        let payload = {
-            email,
-            password
-        };
-        try {
+    try {
+        const user = await UsersServices.login({ email, password })
 
-            const user = await UsersServices.login(payload);
+        toast.success("Login successful")
 
-            toast.success("Login Success");
-            if (user.userType == 1) {
-                nav("/admin")          //Admin
-            }
-            else if (user.userType == 3) {
-                nav("/") // navigate on the base on Roles
-            }
-            else {
-                nav("/")
-            }
-        } catch (error) {
-            toast.error(error.message);
+        if (Number(user.userType) === 1) {
+            nav("/admin", { replace: true })
+        } else {
+            nav("/", { replace: true })
         }
-
+    } catch (error) {
+        toast.error(error.message)
     }
+}
 
     return (
         <>
