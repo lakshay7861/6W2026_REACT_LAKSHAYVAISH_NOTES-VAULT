@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, useLocation } from "react-router-dom"
 import AuthService from "../../Services/AuthService"
 
 function Header() {
@@ -8,10 +8,12 @@ function Header() {
   const [activeCourse, setActiveCourse] = useState(null)
   const [user, setUser] = useState(null)
   const nav = useNavigate()
+  const location = useLocation()
 
+  // Re-read login state whenever the route changes (e.g. after login)
   useEffect(() => {
     setUser(AuthService.getData())
-  }, [])
+  }, [location.pathname])
 
   useEffect(() => {
     if (navOpen) {
@@ -100,12 +102,12 @@ function Header() {
                       <i className="bi bi-chevron-down toggle-dropdown"></i>
                     </a>
                     <ul style={{ display: activeCourse === course ? "block" : "" }}>
-                      <li><a href="#">Semester 1</a></li>
-                      <li><a href="#">Semester 2</a></li>
-                      <li><a href="#">Semester 3</a></li>
-                      <li><a href="#">Semester 4</a></li>
-                      <li><a href="#">Semester 5</a></li>
-                      <li><a href="#">Semester 6</a></li>
+                      <li><Link to="/notes" onClick={closeNav}>Semester 1</Link></li>
+                      <li><Link to="/notes" onClick={closeNav}>Semester 2</Link></li>
+                      <li><Link to="/notes" onClick={closeNav}>Semester 3</Link></li>
+                      <li><Link to="/notes" onClick={closeNav}>Semester 4</Link></li>
+                      <li><Link to="/notes" onClick={closeNav}>Semester 5</Link></li>
+                      <li><Link to="/notes" onClick={closeNav}>Semester 6</Link></li>
                     </ul>
                   </li>
                 ))}

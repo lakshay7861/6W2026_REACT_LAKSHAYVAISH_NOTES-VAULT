@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Course() {
     return (
         <>
@@ -39,7 +41,7 @@ function Course() {
             <div className="row row-cols-1 row-cols-md-3 g-4 p-4 ">
                 <div className="col">
                     <div className="card h-100">
-                        <img src="\assets\img\Card\1st image.avif" className="card-img-top" alt="..." />
+                        <img src="/assets/img/Card/1st image.avif" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title fs-3 fw-bold">💻 CSE</h5>
                             <p>Computer Science Engineering</p>
@@ -48,7 +50,7 @@ function Course() {
                                 data structures blueprints, and handwritten coding solutions
                                 🚀 to ace your university exams."
                             </p>
-                            <a href="" className="font-monospace">Explore Materials →</a>
+                            <Link to="/notes" className="font-monospace">Explore Materials →</Link>
                         </div>
                         <div className="card-footer">
                             <small className="text-body-secondary">Last updated 3 mins ago</small>
@@ -57,14 +59,14 @@ function Course() {
                 </div>
                 <div className="col">
                     <div className="card h-100">
-                        <img src="\assets\img\Card\IT 2nd.jpeg" className="card-img-top" alt="..." />
+                        <img src="/assets/img/Card/IT 2nd.jpeg" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title fs-3 fw-bold">🌐 IT</h5>
                             <p>Information Technology</p>
                             <p className="card-text">
                                 "Unlock a structured archive of web technology notes 🗺️, database question banks 🗄️
                                 , operating system PYQs, and faculty-curated cloud computing sheets ☁️."  </p>
-                            <a href="" className="font-monospace">Explore Materials →</a>
+                            <Link to="/notes" className="font-monospace">Explore Materials →</Link>
                         </div>
                         <div className="card-footer">
                             <small className="text-body-secondary">Last updated 3 mins ago</small>
@@ -73,14 +75,14 @@ function Course() {
                 </div>
                 <div className="col">
                     <div className="card h-100">
-                        <img src="\assets\img\Card\3rd image.png" className="card-img-top" alt="..." />
+                        <img src="/assets/img/Card/3rd image.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title fs-3 fw-bold">⚡ ECE</h5>
                             <p>Electronics & Communication</p>
                             <p className="card-text">
                                 "Download official engineering syllabi 📋, microprocessor micro-notes 📟,
                                 previous year digital electronics papers, and communication engineering sheets 📡." </p>
-                            <a href="" className="font-monospace">Explore Materials →</a>
+                            <Link to="/notes" className="font-monospace">Explore Materials →</Link>
                         </div>
                         <div className="card-footer">
                             <small className="text-body-secondary">Last updated 3 mins ago</small>
@@ -91,7 +93,7 @@ function Course() {
             <div className="row row-cols-1 row-cols-md-3 g-4 p-3">
                 <div className="col">
                     <div className="card h-100">
-                        <img src="assets\img\Card\4th image.jpg" className="card-img-top" alt="..." />
+                        <img src="/assets/img/Card/4th image.jpg" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title fs-3 fw-bold">⚙️ ME</h5>
                             <p> Mechanical Engineering</p>
@@ -99,7 +101,7 @@ function Course() {
                                 "Get instant access to solved thermodynamics PYQs ⚙️, machine drawing PDFs 📐,
                                 handwritten fluid mechanics notes  , and CAD/CAM exam reference materials 🏎️."
                             </p>
-                            <a href="" className="font-monospace">Explore Materials →</a>
+                            <Link to="/notes" className="font-monospace">Explore Materials →</Link>
                         </div>
                         <div className="card-footer">
                             <small className="text-body-secondary">Last updated 3 mins ago</small>
@@ -108,7 +110,7 @@ function Course() {
                 </div>
                 <div className="col">
                     <div className="card h-100">
-                        <img src="\assets\img\Card\5th image.jpeg" className="card-img-top" alt="..." />
+                        <img src="/assets/img/Card/5th image.jpeg" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title fs-3 fw-bold">🏢 CE</h5>
                             <p>Civil Engineering</p>
@@ -117,7 +119,7 @@ function Course() {
                                 previous year concrete technology blueprints,
                                 and highway engineering exam resources 🌉."
                             </p>
-                            <a href="" className="font-monospace">Explore Materials →</a>
+                            <Link to="/notes" className="font-monospace">Explore Materials →</Link>
                         </div>
                         <div className="card-footer">
                             <small className="text-body-secondary">Last updated 3 mins ago</small>
@@ -126,7 +128,7 @@ function Course() {
                 </div>
                 <div className="col">
                     <div className="card h-100">
-                        <img src="\assets\img\Card\Ai & Ml 6TH  IMAGE.png" className="card-img-top" alt="..." />
+                        <img src="/assets/img/Card/Ai & Ml 6TH  IMAGE.png" className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title fs-3 fw-bold ">🤖 AI & ML</h5>
                             <p>Artificial Intelligence</p>
@@ -134,7 +136,7 @@ function Course() {
                                 "Find compiled Python data science sheets 📊, neural network handwritten notes 🕸️,
                                 machine learning algorithms PYQs, and smart automation question papers 🤖."
                             </p>
-                            <a href="" className="font-monospace">Explore Materials →</a>
+                            <Link to="/notes" className="font-monospace">Explore Materials →</Link>
                         </div>
                         <div className="card-footer">
                             <small className="text-body-secondary">Last updated 3 mins ago</small>
@@ -143,8 +145,8 @@ function Course() {
                 </div>
             </div>
 
-
         </>
     )
 }
+
 export default Course
