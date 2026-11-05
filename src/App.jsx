@@ -10,17 +10,18 @@ import AdminLayout from "./Layout/AdminLayout"
 import AdDashBoard from "./Component/Admin/DashBoard/AdDashBoard"
 import ManageNotes from "./Component/Admin/ManageNotes/ManageNotes"
 import ManagePaper from "./Component/Admin/ManagePaper/ManagePaper"
-import ManageResource from "./Component/Admin/ManageResource/ManageResource"
 import ManageGroupStudy from "./Component/Admin/GroupStudy/ManageGroupStudy"
 import AddNotes from "./Component/Alumni/AddNotes"
 import AddPaper from "./Component/Alumni/AddPaper"
 import ProtectedRoute from "./Component/Auth/ProtectedRoutes"
-
+import ManageResource from "./Component/Admin/ManageResource/ManageResource"
+  
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          {/* Student Routes */}
           <Route path="/" element={<StudentLayout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
@@ -29,6 +30,7 @@ function App() {
             <Route path="register" element={<Register />} />
           </Route>
 
+          {/* Admin Routes (Protected) */}
           <Route path="/admin" element={
             <ProtectedRoute allowedTypes={[1]}>
               <AdminLayout />

@@ -60,6 +60,12 @@ function Header() {
             <li>
               <Link to="/course" className="text-decoration-none" onClick={closeNav}>Course</Link>
             </li>
+            <li>
+              <Link to="/resource" className="text-decoration-none" onClick={closeNav}>Resource</Link>
+            </li>
+            <li>
+              <Link to="/notes" className="text-decoration-none" onClick={closeNav}>Notes</Link>
+            </li>
 
             <li className={`dropdown ${paperOpen ? "active" : ""}`}>
               <a
