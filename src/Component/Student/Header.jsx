@@ -1,139 +1,146 @@
-import { useState } from "react"
-import "./Header.css"
+import { useState, useEffect } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import AuthService from "../../Services/AuthService"
 
 function Header() {
   const [navOpen, setNavOpen] = useState(false)
   const [paperOpen, setPaperOpen] = useState(false)
   const [activeCourse, setActiveCourse] = useState(null)
+  const [user, setUser] = useState(null)
+  const nav = useNavigate()
 
-  const toggleCourse = (name) => setActiveCourse(activeCourse === name ? null : name)
+  useEffect(() => {
+    setUser(AuthService.getData())
+  }, [])
+
+  useEffect(() => {
+    if (navOpen) {
+      document.body.classList.add("mobile-nav-active")
+    } else {
+      document.body.classList.remove("mobile-nav-active")
+    }
+    return () => {
+      document.body.classList.remove("mobile-nav-active")
+    }
+  }, [navOpen])
+
+  const closeNav = () => {
+    setNavOpen(false)
+    setPaperOpen(false)
+    setActiveCourse(null)
+  }
+
+  const handleLogout = () => {
+    AuthService.logout()
+    setUser(null)
+    closeNav()
+    nav("/login")
+  }
+
+  const toggleCourse = (name) => {
+    setActiveCourse(activeCourse === name ? null : name)
+  }
 
   return (
-    <>
-      <header id="header" className="header d-flex align-items-center sticky-top">
-        <div className="container-fluid container-xl position-relative d-flex align-items-center">
-          <a href="/" className="logo d-flex align-items-center me-auto text-decoration-none">
-            {/* Uncomment the line below if you also wish to use an image logo */}
-            {/* <img src="assets/img/logo.webp" alt=""> */}
-            <h1 className="sitename">Notes Vault</h1>
-          </a>
+    <header id="header" className="header d-flex align-items-center sticky-top">
+      <div className="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-          <nav id="navmenu" className={`navmenu ${navOpen ? "open" : ""}`}>
-            <ul>
-              <li>
-                <a href="/" className="text-decoration-none">
-                  Home
-                  <br />
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="text-decoration-none">About</a>
-              </li>
-              <li>
-                <a href="/course" className="text-decoration-none">Course</a>
-              </li>
+        <Link to="/" className="logo d-flex align-items-center me-auto text-decoration-none" onClick={closeNav}>
+          <h1 className="sitename">Notes Vault</h1>
+        </Link>
 
-              <li className={`dropdown ${paperOpen ? "open-sub" : ""}`}>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setPaperOpen(!paperOpen)
-                  }}
-                >
-                  <span className="text-decoration-none">Question Paper</span>{" "}
-                  <i className="bi bi-chevron-right toggle-dropdown text-decoration-none" />
-                </a>
+        <nav id="navmenu" className="navmenu">
+          <ul>
+            <li>
+              <Link to="/" className="text-decoration-none" onClick={closeNav}>Home</Link>
+            </li>
+            <li>
+              <Link to="/about" className="text-decoration-none" onClick={closeNav}>About</Link>
+            </li>
+            <li>
+              <Link to="/course" className="text-decoration-none" onClick={closeNav}>Course</Link>
+            </li>
 
-                <ul>
-                  <li className={`dropdown ${activeCourse === "btech" ? "open-sub" : ""}`}>
-                    <a href="#" onClick={(e) => { e.preventDefault(); toggleCourse("btech") }}>
-                      <span>B-Tech</span>{" "}
-                      <i className="bi bi-chevron-down toggle-dropdown" />
+            <li className={`dropdown ${paperOpen ? "active" : ""}`}>
+              <a
+                href="#"
+                className="text-decoration-none"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setPaperOpen(!paperOpen)
+                }}
+              >
+                <span>Question Paper</span>
+                <i className="bi bi-chevron-down toggle-dropdown"></i>
+              </a>
+
+              <ul style={{ display: paperOpen ? "block" : "" }}>
+                {["btech", "bsc", "bcom", "mtech", "msc"].map((course) => (
+                  <li key={course} className={`dropdown ${activeCourse === course ? "active" : ""}`}>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        toggleCourse(course)
+                      }}
+                    >
+                      <span>
+                        {course === "btech" && "B-Tech"}
+                        {course === "bsc" && "B-Sc"}
+                        {course === "bcom" && "B-Com"}
+                        {course === "mtech" && "M-Tech"}
+                        {course === "msc" && "M-Sc"}
+                      </span>
+                      <i className="bi bi-chevron-down toggle-dropdown"></i>
                     </a>
-                    <ul>
-                      <li><a href="#">Deep Dropdown 1</a></li>
-                      <li><a href="#">Deep Dropdown 2</a></li>
-                      <li><a href="#">Deep Dropdown 3</a></li>
-                      <li><a href="#">Deep Dropdown 4</a></li>
-                      <li><a href="#">Deep Dropdown 5</a></li>
+                    <ul style={{ display: activeCourse === course ? "block" : "" }}>
+                      <li><a href="#">Semester 1</a></li>
+                      <li><a href="#">Semester 2</a></li>
+                      <li><a href="#">Semester 3</a></li>
+                      <li><a href="#">Semester 4</a></li>
+                      <li><a href="#">Semester 5</a></li>
+                      <li><a href="#">Semester 6</a></li>
                     </ul>
                   </li>
+                ))}
+              </ul>
+            </li>
 
-                  <li className={`dropdown ${activeCourse === "bsc" ? "open-sub" : ""}`}>
-                    <a href="#" onClick={(e) => { e.preventDefault(); toggleCourse("bsc") }}>
-                      <span>B-Sc</span>{" "}
-                      <i className="bi bi-chevron-down toggle-dropdown" />
-                    </a>
-                    <ul>
-                      <li><a href="#">Deep Dropdown 1</a></li>
-                      <li><a href="#">Deep Dropdown 2</a></li>
-                      <li><a href="#">Deep Dropdown 3</a></li>
-                      <li><a href="#">Deep Dropdown 4</a></li>
-                      <li><a href="#">Deep Dropdown 5</a></li>
-                    </ul>
+            {user ? (
+              <>
+                {Number(user.userType) === 1 && (
+                  <li>
+                    <Link to="/admin" className="text-decoration-none" onClick={closeNav}>
+                      Admin
+                    </Link>
                   </li>
+                )}
+                <li>
+                  <a href="#" className="text-decoration-none" onClick={(e) => { e.preventDefault(); handleLogout() }}>
+                    Logout ({user.name || "User"})
+                  </a>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/login" className="text-decoration-none" onClick={closeNav}>Login</Link>
+                </li>
+                <li>
+                  <Link to="/register" className="text-decoration-none" onClick={closeNav}>Register</Link>
+                </li>
+              </>
+            )}
+          </ul>
 
-                  <li className={`dropdown ${activeCourse === "bcom" ? "open-sub" : ""}`}>
-                    <a href="#" onClick={(e) => { e.preventDefault(); toggleCourse("bcom") }}>
-                      <span>B-Com</span>{" "}
-                      <i className="bi bi-chevron-down toggle-dropdown" />
-                    </a>
-                    <ul>
-                      <li><a href="#">Deep Dropdown 1</a></li>
-                      <li><a href="#">Deep Dropdown 2</a></li>
-                      <li><a href="#">Deep Dropdown 3</a></li>
-                      <li><a href="#">Deep Dropdown 4</a></li>
-                      <li><a href="#">Deep Dropdown 5</a></li>
-                    </ul>
-                  </li>
-
-                  <li className={`dropdown ${activeCourse === "mtech" ? "open-sub" : ""}`}>
-                    <a href="#" onClick={(e) => { e.preventDefault(); toggleCourse("mtech") }}>
-                      <span>M-Tech</span>{" "}
-                      <i className="bi bi-chevron-down toggle-dropdown" />
-                    </a>
-                    <ul>
-                      <li><a href="#">Deep Dropdown 1</a></li>
-                      <li><a href="#">Deep Dropdown 2</a></li>
-                      <li><a href="#">Deep Dropdown 3</a></li>
-                      <li><a href="#">Deep Dropdown 4</a></li>
-                      <li><a href="#">Deep Dropdown 5</a></li>
-                    </ul>
-                  </li>
-
-                  <li className={`dropdown ${activeCourse === "msc" ? "open-sub" : ""}`}>
-                    <a href="#" onClick={(e) => { e.preventDefault(); toggleCourse("msc") }}>
-                      <span>M-Sc</span>{" "}
-                      <i className="bi bi-chevron-down toggle-dropdown" />
-                    </a>
-                    <ul>
-                      <li><a href="#">Deep Dropdown 1</a></li>
-                      <li><a href="#">Deep Dropdown 2</a></li>
-                      <li><a href="#">Deep Dropdown 3</a></li>
-                      <li><a href="#">Deep Dropdown 4</a></li>
-                      <li><a href="#">Deep Dropdown 5</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-
-              <li>
-                <a href="/login" className="text-decoration-none">Login</a>
-              </li>
-              <li>
-                <a href="/register" className="text-decoration-none">Register</a>
-              </li>
-            </ul>
-
-            <i
-              className={`mobile-nav-toggle d-xl-none bi ${navOpen ? "bi-x" : "bi-list"}`}
-              onClick={() => setNavOpen(!navOpen)}
-            />
-          </nav>
-        </div>
-      </header>
-    </>
+          <i
+            className={`mobile-nav-toggle d-xl-none bi ${navOpen ? "bi-x" : "bi-list"}`}
+            onClick={() => setNavOpen(!navOpen)}
+            style={{ cursor: "pointer", fontSize: "28px" }}
+          ></i>
+        </nav>
+      </div>
+    </header>
   )
 }
 

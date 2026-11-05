@@ -19,19 +19,24 @@ function Register() {
         setPassword(e.target.value)
     }
 
-    async function submitform(e) {
+ async function submitform(e) {
+    e.preventDefault();
 
-        e.preventDefault();
-        let payload = {
-            name: name,
-            email: email,
-            phone: phone,
-            password: password
-        }
+    let payload = {
+        name: name,
+        email: email,
+        phone: phone,
+        password: password
+    }
 
+    try {
         await UsersServices.register(payload)
         toast.success("Registration Successful")
+        nav("/login")
+    } catch (error) {
+        toast.error(error.message || "Registration failed")
     }
+}
 
 
     return (

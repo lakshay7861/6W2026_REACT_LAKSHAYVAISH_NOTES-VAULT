@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import NotesService from "../../Services/NotesService"
 import CloudinaryService from "../../Services/Cloudinary"
+import AuthService from "../../Services/AuthService"
 
 function AddNotes() {
     const [title, setTitle] = useState('')
@@ -13,36 +14,36 @@ function AddNotes() {
 
     const nav = useNavigate()
 
-    async function addnotes(e) {
-        e.preventDefault()
+  async function addnotes(e) {
+    e.preventDefault()
 
-        if (!file) {
-            toast.error("Please select a file first!")
-            return
-        }
-
-        try {
-            setLoading(true)
-            const fileUrl = await CloudinaryService.upload(file)
-
-            await NotesService.add({
-                name: title,
-                subject: subject,
-                description: description,
-                fileUrl: fileUrl,
-            })
-
-            toast.success("Notes Added")
-            nav(-1)
-        } catch (err) {
-            toast.error("Error Adding Notes")
-            console.log("Error:", err)
-           
-        } finally {
-            setLoading(false)
-        }
+    if (!file) {
+        toast.error("Please select a file first!")
+        return
     }
 
+    try {
+        setLoading(true)
+        const fileUrl = await CloudinaryService.upload(file)
+        const currentUser = AuthService.getData()
+
+        await NotesService.add({
+            name: title,
+            subject: subject,
+            description: description,
+            fileUrl: fileUrl,
+            uploadedBy: currentUser?.name || currentUser?.email || "Unknown",
+        })
+
+        toast.success("Notes Added")
+        nav(-1)
+    } catch (err) {
+        toast.error("Error Adding Notes")
+        console.log("Error:", err)
+    } finally {
+        setLoading(false)
+    }
+}
     return (
         <>
             <div className="container-fluid bg-success page-header py-5">

@@ -14,6 +14,7 @@ import ManageResource from "./Component/Admin/ManageResource/ManageResource"
 import ManageGroupStudy from "./Component/Admin/GroupStudy/ManageGroupStudy"
 import AddNotes from "./Component/Alumni/AddNotes"
 import AddPaper from "./Component/Alumni/AddPaper"
+import ProtectedRoute from "./Component/Auth/ProtectedRoutes"
 
 function App() {
   return (
@@ -28,7 +29,11 @@ function App() {
             <Route path="register" element={<Register />} />
           </Route>
 
-          <Route path="/admin" element={<AdminLayout />}>
+          <Route path="/admin" element={
+            <ProtectedRoute allowedTypes={[1]}>
+              <AdminLayout />
+            </ProtectedRoute>
+          }>
             <Route index element={<AdDashBoard />} />
             <Route path="managenotes" element={<ManageNotes />} />
             <Route path="managenotes/addnotes" element={<AddNotes />} />
@@ -45,4 +50,4 @@ function App() {
   )
 }
 
-export default App  
+export default App
