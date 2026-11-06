@@ -13,7 +13,6 @@ import AdminLayout from "./Layout/AdminLayout"
 import AdDashBoard from "./Component/Admin/DashBoard/AdDashBoard"
 import ManageNotes from "./Component/Admin/ManageNotes/ManageNotes"
 import ManagePaper from "./Component/Admin/ManagePaper/ManagePaper"
-import ManageGroupStudy from "./Component/Admin/GroupStudy/ManageGroupStudy"
 import ManageResource from "./Component/Admin/ManageResource/ManageResource"
 import AddNotes from "./Component/Alumni/AddNotes"
 import AddPaper from "./Component/Alumni/AddPaper"
@@ -66,7 +65,6 @@ function App() {
             <Route path="managepaper/addpaper" element={<AddPaper />} />
             <Route path="manageresource" element={<ManageResource />} />
             <Route path="manageresource/addresource" element={<AddResource />} />
-            <Route path="managegroupstudy" element={<ManageGroupStudy />} />
           </Route>
         </Routes>
 

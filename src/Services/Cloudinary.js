@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const cloudName = "g9iq0uix"
-const uploadUrl = `https://api.cloudinary.com/v1_1/${cloudName}/raw/upload`
+const uploadUrl = `https://api.cloudinary.com/v1_1/g9iq0uix/auto/upload`
 
 class CloudinaryService {
     async upload(file) {

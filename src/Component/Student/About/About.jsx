@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import NotesService from "../../../Services/NotesService"
 import PaperService from "../../../Services/PaperService"
 import ResourceService from "../../../Services/ResourceService"
+import FeedbackForm from "./FeedbackForm"
 
 function About() {
     const [counts, setCounts] = useState({ notes: null, papers: null, videos: null })
@@ -129,6 +130,15 @@ function About() {
                     <Link to="/register" className="btn btn-success mt-3">Join Notes Vault</Link>
                 </div>
             </section>
+            {/* /Mission */}
+
+            {/* Feedback */}
+            <section className="section">
+                <div className="container">
+                    <FeedbackForm />
+                </div>
+            </section>
+            {/* /Feedback */}
         </>
     )
 }
