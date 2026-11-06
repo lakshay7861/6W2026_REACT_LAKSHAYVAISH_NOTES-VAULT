@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react"
+import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
 import ResourceService from "../../../Services/ResourceService"
+import AuthService from "../../../Services/AuthService"
 
 const semesters = ["1", "2", "3", "4", "5", "6", "7", "8"]
 
@@ -10,12 +12,16 @@ function Resource() {
     const [semester, setSemester] = useState("")
     const [subject, setSubject] = useState("")
 
+    // Only admins (userType 1) can see the Add Resource button
+    const currentUser = AuthService.getData()
+    const isAdmin = Number(currentUser?.userType) === 1
+
     useEffect(() => {
         (async () => {
             try {
                 setResources(await ResourceService.all())
             } catch (err) {
-                toast.error("Resources load nahi hue")
+                toast.error("Failed to load resources")
                 console.log("Error:", err)
             } finally {
                 setLoading(false)
@@ -41,6 +47,14 @@ function Resource() {
             </div>
 
             <div className="container mt-4 mb-5">
+                {isAdmin && (
+                    <div className="d-flex justify-content-end mb-3">
+                        <Link to="/admin/manageresource/addresource" className="btn btn-success">
+                            + Add Resource
+                        </Link>
+                    </div>
+                )}
+
                 <div className="row g-3 mb-4">
                     <div className="col-md-6">
                         <select
@@ -51,7 +65,7 @@ function Resource() {
                                 setSubject("")
                             }}
                         >
-                            <option value="">Saare Semester</option>
+                            <option value="">All Semesters</option>
                             {semesters.map((s) => (
                                 <option key={s} value={s}>Semester {s}</option>
                             ))}
@@ -63,7 +77,7 @@ function Resource() {
                             value={subject}
                             onChange={(e) => setSubject(e.target.value)}
                         >
-                            <option value="">Saare Subjects</option>
+                            <option value="">All Subjects</option>
                             {subjects.map((s) => (
                                 <option key={s} value={s}>{s}</option>
                             ))}
@@ -73,7 +87,7 @@ function Resource() {
 
                 {loading && <p className="text-center">Loading...</p>}
                 {!loading && filtered.length === 0 && (
-                    <p className="text-center">Is filter mein koi video nahi hai</p>
+                    <p className="text-center">No videos match this filter</p>
                 )}
 
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -94,7 +108,7 @@ function Resource() {
                                         rel="noopener noreferrer"
                                         className="btn btn-success w-100"
                                     >
-                                        ▶ Video dekho
+                                        ▶ Watch video
                                     </a>
                                 </div>
                             </div>

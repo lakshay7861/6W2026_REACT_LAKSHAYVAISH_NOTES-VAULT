@@ -12,7 +12,7 @@ function ManageResource() {
             setLoading(true)
             setResources(await ResourceService.all())
         } catch (err) {
-            toast.error("Resources load nahi hue")
+            toast.error("Failed to load resources")
             console.log("Error:", err)
         } finally {
             setLoading(false)
@@ -24,13 +24,13 @@ function ManageResource() {
     }, [])
 
     async function removeResource(id) {
-        if (!window.confirm("Ye resource delete karna hai?")) return
+        if (!window.confirm("Are you sure you want to delete this resource?")) return
         try {
             await ResourceService.delete(id)
             toast.success("Deleted")
             load()
         } catch (err) {
-            toast.error("Delete nahi hua")
+            toast.error("Failed to delete")
         }
     }
 
@@ -72,7 +72,7 @@ function ManageResource() {
                             <tr><td colSpan="8" className="text-center">Loading...</td></tr>
                         )}
                         {!loading && resources.length === 0 && (
-                            <tr><td colSpan="8" className="text-center">Abhi koi resource nahi hai</td></tr>
+                            <tr><td colSpan="8" className="text-center">No resources yet</td></tr>
                         )}
                         {!loading && resources.map((r, index) => (
                             <tr key={r.id}>

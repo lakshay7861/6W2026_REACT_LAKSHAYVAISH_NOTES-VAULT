@@ -19,10 +19,10 @@ function AddResource() {
     async function addResource(e) {
         e.preventDefault()
 
-        if (!semester) return toast.error("Semester select karo")
-        if (!subject.trim()) return toast.error("Subject likho")
-        if (!topic.trim()) return toast.error("Topic likho")
-        if (!/^https?:\/\//i.test(videoUrl.trim())) return toast.error("Valid video link daalo (https:// se shuru)")
+        if (!semester) return toast.error("Please select a semester")
+        if (!subject.trim()) return toast.error("Please enter a subject")
+        if (!topic.trim()) return toast.error("Please enter a topic")
+        if (!/^https?:\/\//i.test(videoUrl.trim())) return toast.error("Please enter a valid video link (starting with https://)")
 
         try {
             setLoading(true)
@@ -39,7 +39,7 @@ function AddResource() {
             toast.success("Resource added")
             nav("/admin/manageresource")
         } catch (err) {
-            toast.error("Resource add nahi hua")
+            toast.error("Failed to add resource")
             console.log("Error:", err)
         } finally {
             setLoading(false)
@@ -72,7 +72,7 @@ function AddResource() {
                         <input
                             type="text"
                             className={inputClass}
-                            placeholder="Subject (jaise: Data Structures)"
+                            placeholder="Subject (e.g. Data Structures)"
                             value={subject}
                             onChange={(e) => setSubject(e.target.value)}
                         />
@@ -80,7 +80,7 @@ function AddResource() {
                         <input
                             type="text"
                             className={inputClass}
-                            placeholder="Topic (jaise: Linked List)"
+                            placeholder="Topic (e.g. Linked List)"
                             value={topic}
                             onChange={(e) => setTopic(e.target.value)}
                         />
@@ -88,7 +88,7 @@ function AddResource() {
                         <input
                             type="text"
                             className={inputClass}
-                            placeholder="Title (optional, khali chhodo to topic hi title banega)"
+                            placeholder="Title (optional, topic is used if left blank)"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
