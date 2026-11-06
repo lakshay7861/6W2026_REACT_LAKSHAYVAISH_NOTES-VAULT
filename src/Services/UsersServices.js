@@ -23,10 +23,10 @@ class UsersService {
         const user = usersData.user;
 
         const newUser = new UserModel();
-        newUser.name = data.name; // Register form se aayega
+        newUser.name = data.name;
         newUser.email = user.email;
         newUser.phone = data.phone || "";
-        newUser.userType = 2;
+        newUser.userType = 3; // Student
 
         await setDoc(doc(db, dbpath, user.uid), { ...newUser });
 
