@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import ResourceService from "../../Services/ResourceService"
 import AuthService from "../../Services/AuthService"
@@ -36,10 +36,10 @@ function AddResource() {
                 videoUrl: videoUrl.trim(),
                 uploadedBy: currentUser?.name || currentUser?.email || "Unknown",
             })
-            toast.success("Resource added")
-            nav("/admin/manageresource")
+            toast.success("Video added")
+            nav(-1)
         } catch (err) {
-            toast.error("Failed to add resource")
+            toast.error("Failed to add video")
             console.log("Error:", err)
         } finally {
             setLoading(false)
@@ -51,12 +51,7 @@ function AddResource() {
     return (
         <>
             <div className="container-fluid bg-success page-header py-5">
-                <h1 className="text-center text-white display-6">Add Resource</h1>
-                <ol className="breadcrumb justify-content-center mb-0">
-                    <li className="breadcrumb-item"><Link to="/admin">Dashboard</Link></li>
-                    <li className="breadcrumb-item"><Link to="/admin/manageresource">Resources</Link></li>
-                    <li className="breadcrumb-item active text-white">Add Resource</li>
-                </ol>
+                <h1 className="text-center text-white display-6">Add Video Resource</h1>
             </div>
 
             <div className="d-flex justify-content-center mt-5 mb-5">
