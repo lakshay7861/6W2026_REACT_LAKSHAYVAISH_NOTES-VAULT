@@ -1,8 +1,8 @@
 import axios from "axios"
 
 const CLOUD_NAME = "g9iq0uix"
-const UPLOAD_PRESET = "notesvault_public"
-const uploadUrl = `https://api.cloudinary.com/v1_1/$g9iq0uix/raw/upload`
+const UPLOAD_PRESET = "notesvault_unsigned"
+const uploadUrl = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/raw/upload`
 
 class CloudinaryService {
     async upload(file) {
