@@ -12,6 +12,7 @@ class CloudinaryService {
 
         try {
             const res = await axios.post(uploadUrl, formData)
+            console.log("CLOUDINARY SUCCESS:", res.data)
             return res.data.secure_url
         } catch (err) {
             console.log("CLOUDINARY ERROR TEXT:", JSON.stringify(err.response?.data))

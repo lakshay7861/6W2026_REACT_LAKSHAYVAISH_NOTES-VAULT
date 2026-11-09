@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import Swal from "sweetalert2"
 import { toast } from "react-toastify"
+import Swal from "sweetalert2"
 import NotesService from "../../../Services/NotesService"
 
 function ManageNotes() {
@@ -34,7 +34,7 @@ function ManageNotes() {
             text: "This note will be permanently deleted.",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
+            confirmButtonColor: "#198754",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!",
         })
@@ -65,8 +65,7 @@ function ManageNotes() {
             <div className="container-fluid page-header bg-success py-5">
                 <h1 className="text-center text-white display-6">Manage Notes</h1>
                 <ol className="breadcrumb justify-content-center mb-0">
-                    <li className="breadcrumb-item"><Link to="#">Home</Link></li>
-                    <li className="breadcrumb-item"><Link to="#">Pages</Link></li>
+                    <li className="breadcrumb-item"><Link to="/admin">Home</Link></li>
                     <li className="breadcrumb-item active text-white">Manage Notes</li>
                 </ol>
             </div>
@@ -121,7 +120,7 @@ function ManageNotes() {
                                             View PDF
                                         </a>
                                     ) : (
-                                        "-"
+                                        <span className="text-danger">No file (re-upload)</span>
                                     )}
                                 </td>
                                 <td>{formatDate(note.createdAt)}</td>
