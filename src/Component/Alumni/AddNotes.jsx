@@ -47,7 +47,12 @@ function AddNotes() {
             toast.success("Notes Added")
             nav(-1)
         } catch (err) {
-            toast.error("Error Adding Notes")
+            // Asli error toast mein dikhao (mobile par console nahi hota)
+            const msg =
+                err.response?.data?.error?.message ||
+                err.message ||
+                "Error Adding Notes"
+            toast.error(msg)
             console.log("Error:", err)
         } finally {
             setLoading(false)
@@ -92,7 +97,7 @@ function AddNotes() {
 
                         <input
                             type="file"
-                            accept="application/pdf"
+                            accept=".pdf,application/pdf"
                             className="w-100 form-control border-1 py-3 mb-4 border-success"
                             onChange={(e) => setFile(e.target.files[0] || null)}
                         />
