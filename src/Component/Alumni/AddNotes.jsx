@@ -47,12 +47,7 @@ function AddNotes() {
             toast.success("Notes Added")
             nav(-1)
         } catch (err) {
-            // Asli error toast mein dikhao (mobile par console nahi hota)
-            const msg =
-                err.response?.data?.error?.message ||
-                err.message ||
-                "Error Adding Notes"
-            toast.error(msg)
+            toast.error("Error Adding Notes")
             console.log("Error:", err)
         } finally {
             setLoading(false)
