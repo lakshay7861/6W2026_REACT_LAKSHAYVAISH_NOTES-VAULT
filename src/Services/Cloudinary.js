@@ -1,8 +1,9 @@
 import axios from "axios"
 
 const CLOUD_NAME = "g9iq0uix"
-const UPLOAD_PRESET = "notesvault_public"   // Type: upload, Access: Public, Mode: Unsigned
-   const uploadUrl = `https://api.cloudinary.com/v1_1/$g9iq0uix/raw/upload`
+const UPLOAD_PRESET = "notesvault_public"
+const uploadUrl = `https://api.cloudinary.com/v1_1/$g9iq0uix/raw/upload`
+
 class CloudinaryService {
     async upload(file) {
         const formData = new FormData()
