@@ -4,7 +4,7 @@ const siteInfo = {
     name: "Notes Vault",
     address: "LKCTC, Jalandhar, Punjab, India",
     phone: "+91 97795 50652",
-    email: "notesvault@gmail.com",
+    email: "vaishlakshay19@gmail.com",
     social: {
         instagram: "https://www.instagram.com/lakshay_vaish_827",
         linkedin: "https://www.linkedin.com/in/lakshay-vaish-927430373",
